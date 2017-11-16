@@ -1,7 +1,6 @@
 package zadanie63;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Matrix {
 
@@ -19,7 +18,7 @@ public class Matrix {
                     tablica[i][j] = 1;
                 } else
                     tablica[i][j] = 0;
-                System.out.println(tablica[i][j] + " ");
+                System.out.print(tablica[i][j] + " ");
             }
                 System.out.println();
             }
@@ -36,6 +35,21 @@ public class Matrix {
                 System.out.println();
             }
             fw.close();
+        }
+
+        public void czytajDaneZPliku (int tablica[][], int romiar) throws IOException {
+            System.out.println("Odczytuje tablice 10x10");
+            FileReader fr = new FileReader("tablica.txt");
+            BufferedReader br = new BufferedReader(fr);
+
+            for(int i=0; i<romiar; i++){
+                for(int j=0; j<romiar; j++){
+                    tablica[i][j]=(int)br.read();
+                    System.out.print(tablica[i][j]+" ");
+                }
+                System.out.println();
+            }
+            fr.close();
         }
 
     }
